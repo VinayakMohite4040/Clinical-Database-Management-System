@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1><strong>Enter the Visit details :</strong></h1>
+
+<form action="http://localhost:5000/insert/visit" method="POST">
+    <table width="900px">
+
+        <tr>
+        <th align="left">
+            Patient ID
+        </th>
+        <td valign="top">
+            <input type="number" name="P_id" placeholder="Enter Patient ID">
+        </td>
+    </tr>
+
+        <tr>
+        <th align="left">
+            Reason for Visit
+        </th>
+        <td valign="top">
+            <input type="text" name="Reason_for_visit" placeholder="Enter the reason for visit">
+        </td>
+    </tr>
+
+    <tr>
+        <td colspan="2" style="text-align:center">
+            <input type="submit" value="submit">
+        </td>
+    </tr>
+
+    </table>
+</form>
+
+<div class="list-group">
+<a href="http://localhost:5000" class="list-group-item">Home</a>
+</div>
+
+{% endblock content %}

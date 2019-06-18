@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+<div class="container">
+    <h2><strong>Enter Patient Data</strong></h2>
+
+    <form action="http://localhost:5000/search/patient/name" method="POST">
+        <h2>By Name</h2>
+    <table width="900px">
+    <tr>
+        <th align="left">
+            Patient Name
+        </th>
+        <td valign="top">
+            <input type="text" name="P_name" placeholder="Enter Patient Name">
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2" style="text-align:center">
+            <input type="submit" value="submit">
+        </td>
+    </tr>
+    </table>
+    </form>
+
+    </div>
+
+<div class="list-group">
+<a href="http://localhost:5000" class="list-group-item">Home</a>
+</div>
+
+{% endblock content %}

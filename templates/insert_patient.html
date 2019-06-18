@@ -1,0 +1,116 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1><strong>Enter the Patient details :</strong></h1>
+
+<div class="form-group">
+
+<form action="http://localhost:5000/insert/patient" method="POST">
+    <table width="900px">
+
+    <tr>
+        <th align="left">
+            Patient Name
+        </th>
+        <td valign="top">
+            <input type="text" name="name" placeholder="Enter Patient Name">
+        </td>
+    </tr>
+
+    <tr>
+        <th align="left">
+            D.O.B.
+        </th>
+        <td valign="top">
+            <input type="date" name="DOB" placeholder="Enter Date of Birth">
+        </td>
+    </tr>
+
+    <tr>
+        <th align="left">
+            Gender
+        </th>
+        <td valign="top">
+            <input type="radio" name="gender" value="M"> Male<br>
+            <input type="radio" name="gender" value="F"> Female<br>
+        </td>
+    </tr>
+
+    <tr>
+        <th align="left">
+            Blood Group
+        </th>
+        <td valign="top">
+            <input type="text" name="blood_grp" placeholder="Enter Blood Group">
+        </td>
+    </tr>
+
+    <tr>
+        <th align="left">
+            Phone 1
+        </th>
+        <td valign="top">
+            <input type="text" name="phone_1" placeholder="Enter Phone Number 1">
+        </td>
+    </tr>
+
+    <tr>
+        <th align="left">
+            Phone 2
+        </th>
+        <td valign="top">
+            <input type="text" name="phone_2" placeholder="Enter Phone Number 2">
+        </td>
+    </tr>
+
+    <tr>
+        <th align="left">
+            House No.
+        </th>
+        <td valign="top">
+            <input type="text" name="house_no" placeholder="Enter House No.">
+        </td>
+    </tr>
+
+    <tr>
+        <th align="left">
+            Street
+        </th>
+        <td valign="top">
+            <input type="text" name="street" placeholder="Enter Street">
+        </td>
+    </tr>
+
+    <tr>
+        <th align="left">
+            City
+        </th>
+        <td valign="top">
+            <input type="text" name="city" placeholder="Enter City">
+        </td>
+    </tr>
+
+    <tr>
+        <th align="left">
+            State
+        </th>
+        <td valign="top">
+            <input type="text" name="state" placeholder="Enter State">
+        </td>
+    </tr>
+
+    <tr>
+        <td colspan="2" style="text-align:center">
+            <input type="submit" value="submit">
+        </td>
+    </tr>
+
+    </table>
+</form>
+</div>
+
+<div class="list-group">
+<a href="http://localhost:5000" class="list-group-item">Home</a>
+</div>
+
+{% endblock content %}

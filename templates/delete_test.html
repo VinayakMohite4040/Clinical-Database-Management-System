@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container">
+    <h2><strong>Enter Test Data</strong></h2>
+
+
+<form action="http://localhost:5000/delete/test" method="POST">
+    <table width="900px">
+    <tr>
+        <th align="left">
+            Test ID
+        </th>
+        <td valign="top">
+            <input type="number" name="id" placeholder="Enter Test ID">
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2" style="text-align:center">
+            <input type="submit" value="submit">
+        </td>
+    </tr>
+    </table>
+    </form>
+
+    </div>
+
+<div class="list-group">
+    <a href="http://localhost:5000/delete/test/all" class="list-group-item">Delete All</a>
+    <a href="http://localhost:5000" class="list-group-item">Home</a>
+</div>
+
+{% endblock content %}

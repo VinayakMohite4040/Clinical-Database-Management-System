@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+<div class="container">
+    <h2>Patient Table</h2>
+
+    <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>DOB</th>
+          <th>Gender</th>
+          <th>Phone 1</th>
+          <th>Phone 2</th>
+          <th>Blood Group</th>
+          <th>House_no</th>
+          <th>Street</th>
+          <th>City</th>
+          <th>State</th>
+      </tr>
+    </thead>
+
+    <tbody>
+    {% for x in result: %}
+        <tr>
+        {% for y in x: %}
+                <td>{{y}}</td>
+            {% endfor %}
+        </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+</div>
+
+<div class="list-group">
+<a href="http://localhost:5000" class="list-group-item">Home</a>
+</div>
+
+
+{% endblock content %}

@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1><strong>Enter the Test details :</strong></h1>
+
+<form action="http://localhost:5000/insert/test" method="POST">
+    <table width="900px">
+
+    <tr>
+        <th align="left">
+            Test Name
+        </th>
+        <td valign="top">
+            <input type="text" name="name" placeholder="Enter Test Name">
+        </td>
+    </tr>
+
+    <tr>
+        <th align="left">
+            Room No.
+        </th>
+        <td valign="top">
+            <input type="text" name="room" placeholder="Enter Room No.">
+        </td>
+    </tr>
+
+    <tr>
+        <th align="left">
+            Test Fees
+        </th>
+        <td valign="top">
+            <input type="text" name="cost" placeholder="Enter Test's Cost" size="30">
+        </td>
+    </tr>
+
+    <tr>
+        <td colspan="2" style="text-align:center">
+            <input type="submit" value="submit">
+        </td>
+    </tr>
+
+    </table>
+</form>
+
+<div class="list-group">
+<a href="http://localhost:5000" class="list-group-item">Home</a>
+</div>
+
+{% endblock content %}

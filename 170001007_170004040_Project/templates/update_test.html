@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1><strong>Enter the Test details :</strong></h1>
+
+<div class="form-group">
+
+<form action="http://localhost:5000/update/test" method="POST">
+    <table width="900px">
+
+    <tr>
+        <th align="left">
+            Test ID
+        </th>
+        <td valign="top">
+            <input type="number" name="id" placeholder="Enter Test ID">
+        </td>
+    </tr>
+
+
+    <tr>
+        <th align="left">
+            Choose one
+        </th>
+        <td valign="top">
+            <input type="radio" name="choice" value="Name">Test Name<br>
+            <input type="radio" name="choice" value="Room_no">Room No.<br>
+            <input type="radio" name="choice" value="test_cost">Test Cost<br>
+        </td>
+    </tr>
+
+        <tr>
+        <th align="left">
+            Modification
+        </th>
+        <td valign="top">
+            <input type="text" name="change" placeholder="Enter changes">
+        </td>
+    </tr>
+
+            <tr>
+        <td colspan="2" style="text-align:center">
+            <input type="submit" value="submit">
+        </td>
+    </tr>
+
+    </table>
+</form>
+</div>
+
+<div class="list-group">
+<a href="http://localhost:5000" class="list-group-item">Home</a>
+</div>
+
+{% endblock content %}

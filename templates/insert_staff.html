@@ -1,0 +1,143 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1><strong>Enter the Staff details :</strong></h1>
+
+<div class="form-group">
+
+<form action="http://localhost:5000/insert/staff" method="POST">
+    <table width="900px">
+
+    <tr>
+        <th align="left">
+            Staff Name
+        </th>
+        <td valign="top">
+            <input type="text" name="name" placeholder="Enter Staff Name">
+        </td>
+    </tr>
+
+    <tr>
+        <th align="left">
+            Joining Date
+        </th>
+        <td valign="top">
+            <input type="date" name="joining" placeholder="Enter Joining Date">
+        </td>
+    </tr>
+
+    <tr>
+        <th align="left">
+            Gender
+        </th>
+        <td valign="top">
+            <input type="radio" name="gender" value="M"> Male<br>
+            <input type="radio" name="gender" value="F"> Female<br>
+        </td>
+    </tr>
+
+    <tr>
+        <th align="left">
+            Phone 1
+        </th>
+        <td valign="top">
+            <input type="text" name="phone_1" placeholder="Enter Phone Number 1">
+        </td>
+    </tr>
+
+    <tr>
+        <th align="left">
+            Phone 2
+        </th>
+        <td valign="top">
+            <input type="text" name="phone_2" placeholder="Enter Phone Number 2">
+        </td>
+    </tr>
+
+    <tr>
+        <th align="left">
+            Department
+        </th>
+        <td valign="top">
+            <input type="text" name="department" placeholder="Enter Department">
+        </td>
+    </tr>
+
+    <tr>
+        <th align="left">
+            Post
+        </th>
+        <td valign="top">
+            <input type="text" name="post" placeholder="Enter Staff's Post">
+        </td>
+    </tr>
+
+    <tr>
+        <th align="left">
+            Salary
+        </th>
+        <td valign="top">
+            <input type="text" name="salary" placeholder="Enter Staff's Salary">
+        </td>
+    </tr>
+
+    <tr>
+        <th align="left">
+            Visiting Hours
+        </th>
+        <td valign="top">
+            <input type="text" name="visiting_hrs" placeholder="Enter Visiting Hours">
+        </td>
+    </tr>
+
+    <tr>
+        <th align="left">
+            House No.
+        </th>
+        <td valign="top">
+            <input type="text" name="house_no" placeholder="Enter House No.">
+        </td>
+    </tr>
+
+    <tr>
+        <th align="left">
+            Street
+        </th>
+        <td valign="top">
+            <input type="text" name="street" placeholder="Enter Street">
+        </td>
+    </tr>
+
+    <tr>
+        <th align="left">
+            City
+        </th>
+        <td valign="top">
+            <input type="text" name="city" placeholder="Enter City">
+        </td>
+    </tr>
+
+    <tr>
+        <th align="left">
+            State
+        </th>
+        <td valign="top">
+            <input type="text" name="state" placeholder="Enter State">
+        </td>
+    </tr>
+
+    <tr>
+        <td colspan="2" style="text-align:center">
+            <input type="submit" value="submit">
+        </td>
+    </tr>
+
+    </table>
+</form>
+</div>
+
+<div class="list-group">
+<a href="http://localhost:5000" class="list-group-item">Home</a>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,213 @@
+mysql> show tables;
++----------------+
+| Tables_in_test |
++----------------+
+| patient        |
+| payment        |
+| staff          |
+| test_details   |
+| visit          |
++----------------+
+5 rows in set (0.01 sec)
+
+
+Patient
+create table patient(
+    P_id int(5) primary key auto_increment,
+    P_name varchar(25) not null,
+    DOB date,
+    Gender enum('M','F'),
+    P_phone_1 int check(P_phone_1 % 10000000 <> 0),
+    P_phone_2 int check(P_phone_2 % 10000000 <> 0),
+    Blood_group enum('B+', 'B-', 'O+', 'O-', 'A+', 'A-', 'AB+', 'AB-'),
+    Add_house_no varchar(5),
+    Add_street varchar(25),
+    Add_city varchar(25),
+    Add_state varchar(25)
+    )
+
+Staff
+create table staff(
+    S_id int(5) primary key auto_increment,
+    S_name varchar(25) not null,
+    Joining_date date,
+    Gender enum('M', 'F'),
+    S_phone_1 int check(P_phone_1 % 10000000 <> 0),
+    S_phone_2 int check(P_phone_2 % 10000000 <> 0),
+    Department varchar(25),
+    Salary int,
+    Post varchar(25),
+    Visiting_hrs varchar(15),
+    Add_house_no varchar(5),
+    Add_street varchar(25),
+    Add_city varchar(25),
+    Add_state varchar(25)
+    )
+
+Visit
+create table visit(
+    Visit_id int(5) primary key auto_increment,
+    S_id int(5),
+    Visit_date date,
+    Reason_for_visit varchar(50),
+    P_id int(5),
+    test_1 int(5),
+    test_2 int(5),
+    test_3 int(5),
+    test_4 int(5),
+    bill_amount int,
+    Due_date date,
+    Payment_status enum('completed', 'pending') default 'pending',
+    Amount_pending int
+    )
+
+test_details
+create table test_details(
+    Test_id int(5) primary key auto_increment,
+    Room_no varchar(5),
+    Name varchar(25),
+    test_cost int
+    )
+
+Payment
+create table payment(
+    Payment_id int(5) primary key auto_increment,
+    Visit_id int(5),
+    Paid_date date,
+    Payment_method varchar(25),
+    amt_paid int
+    )
+
+
+mysql> desc patient;
++--------------+-------------------------------------------------+------+-----+---------+----------------+
+| Field        | Type                                            | Null | Key | Default | Extra          |
++--------------+-------------------------------------------------+------+-----+---------+----------------+
+| P_id         | int(5)                                          | NO   | PRI | NULL    | auto_increment |
+| P_name       | varchar(25)                                     | NO   |     | NULL    |                |
+| DOB          | date                                            | YES  |     | NULL    |                |
+| Gender       | enum('M','F')                                   | YES  |     | NULL    |                |
+| P_phone_1    | int(11)                                         | YES  |     | NULL    |                |
+| P_phone_2    | int(11)                                         | YES  |     | NULL    |                |
+| Blood_group  | enum('B+','B-','O+','O-','A+','A-','AB+','AB-') | YES  |     | NULL    |                |
+| Add_house_no | varchar(5)                                      | YES  |     | NULL    |                |
+| Add_street   | varchar(25)                                     | YES  |     | NULL    |                |
+| Add_city     | varchar(25)                                     | YES  |     | NULL    |                |
+| Add_state    | varchar(25)                                     | YES  |     | NULL    |                |
++--------------+-------------------------------------------------+------+-----+---------+----------------+
+11 rows in set (0.45 sec)
+
+mysql> desc staff;
++--------------+---------------+------+-----+---------+----------------+
+| Field        | Type          | Null | Key | Default | Extra          |
++--------------+---------------+------+-----+---------+----------------+
+| S_id         | int(5)        | NO   | PRI | NULL    | auto_increment |
+| S_name       | varchar(25)   | NO   |     | NULL    |                |
+| Joining_date | date          | YES  |     | NULL    |                |
+| Gender       | enum('M','F') | YES  |     | NULL    |                |
+| S_phone_1    | int(11)       | YES  |     | NULL    |                |
+| S_phone_2    | int(11)       | YES  |     | NULL    |                |
+| Department   | varchar(25)   | YES  |     | NULL    |                |
+| Salary       | int(11)       | YES  |     | NULL    |                |
+| Post         | varchar(25)   | YES  |     | NULL    |                |
+| Visiting_hrs | varchar(15)   | YES  |     | NULL    |                |
+| Add_house_no | varchar(5)    | YES  |     | NULL    |                |
+| Add_street   | varchar(25)   | YES  |     | NULL    |                |
+| Add_city     | varchar(25)   | YES  |     | NULL    |                |
+| Add_state    | varchar(25)   | YES  |     | NULL    |                |
++--------------+---------------+------+-----+---------+----------------+
+14 rows in set (0.00 sec)
+
+mysql> desc visit;
++------------------+-----------------------------+------+-----+---------+----------------+
+| Field            | Type                        | Null | Key | Default | Extra          |
++------------------+-----------------------------+------+-----+---------+----------------+
+| Visit_id         | int(5)                      | NO   | PRI | NULL    | auto_increment |
+| S_id             | int(5)                      | YES  |     | NULL    |                |
+| Visit_date       | date                        | YES  |     | NULL    |                |
+| Reason_for_visit | varchar(50)                 | YES  |     | NULL    |                |
+| P_id             | int(5)                      | YES  |     | NULL    |                |
+| test_1           | int(5)                      | YES  |     | NULL    |                |
+| test_2           | int(5)                      | YES  |     | NULL    |                |
+| test_3           | int(5)                      | YES  |     | NULL    |                |
+| test_4           | int(5)                      | YES  |     | NULL    |                |
+| bill_amount      | int(11)                     | YES  |     | NULL    |                |
+| Due_date         | date                        | YES  |     | NULL    |                |
+| Payment_status   | enum('completed','pending') | YES  |     | pending |                |
+| Amount_pending   | int(11)                     | YES  |     | NULL    |                |
++------------------+-----------------------------+------+-----+---------+----------------+
+13 rows in set (0.00 sec)
+
+mysql> desc test_details;
++-----------+-------------+------+-----+---------+----------------+
+| Field     | Type        | Null | Key | Default | Extra          |
++-----------+-------------+------+-----+---------+----------------+
+| Test_id   | int(5)      | NO   | PRI | NULL    | auto_increment |
+| Room_no   | varchar(5)  | YES  |     | NULL    |                |
+| Name      | varchar(25) | YES  |     | NULL    |                |
+| test_cost | int(11)     | NO   |     | NULL    |                |
++-----------+-------------+------+-----+---------+----------------+
+4 rows in set (0.00 sec)
+
+mysql> desc payment;
++----------------+-------------+------+-----+---------+----------------+
+| Field          | Type        | Null | Key | Default | Extra          |
++----------------+-------------+------+-----+---------+----------------+
+| Payment_id     | int(5)      | NO   | PRI | NULL    | auto_increment |
+| Visit_id       | int(5)      | YES  |     | NULL    |                |
+| Paid_date      | date        | YES  |     | NULL    |                |
+| Payment_method | varchar(25) | YES  |     | NULL    |                |
+| amt_paid       | int(11)     | YES  |     | NULL    |                |
++----------------+-------------+------+-----+---------+----------------+
+5 rows in set (0.00 sec)
+
+mysql> show triggers;
++---------------------+--------+---------+-------------------------------------------+--------+------------------------+--------------------------------------------+-----------------+----------------------+----------------------+--------------------+
+| Trigger             | Event  | Table   | Statement                                 | Timing | Created                | sql_mode                                   | Definer         | character_set_client | collation_connection | Database Collation |
++---------------------+--------+---------+-------------------------------------------+--------+------------------------+--------------------------------------------+-----------------+----------------------+----------------------+--------------------+
+| payment_date_update | INSERT | payment | begin
+set new.Paid_date = curdate();
+end  | BEFORE | 2018-11-12 00:43:45.22 | STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION | ankit@localhost | utf8mb4              | utf8mb4_0900_ai_ci   | utf8mb4_0900_ai_ci |
+| visit_date_update   | INSERT | visit   | begin
+set new.visit_date = curdate();
+end | BEFORE | 2018-11-11 00:00:01.88 | STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION | ankit@localhost | utf8mb4              | utf8mb4_0900_ai_ci   | utf8mb4_0900_ai_ci |
++---------------------+--------+---------+-------------------------------------------+--------+------------------------+--------------------------------------------+-----------------+----------------------+----------------------+--------------------+
+2 rows in set (0.00 sec)
+
+
+
+Functions :
+    get_amount :
+    CREATE FUNCTION `get_amount`(id int) RETURNS int(11)
+    BEGIN
+    declare cost int;
+    select test_cost into cost from test_details where test_id = id;
+    RETURN cost;
+    END
+
+    inject :
+    CREATE FUNCTION `inject`(pa_id int) RETURNS int(11)
+    BEGIN
+    declare co int default 0;
+    select count(P_id) into co from patient where P_id = pa_id;
+    RETURN co;
+    END
+
+Triggers :
+    payment_date_update :
+    CREATE TRIGGER `payment_date_update`
+    BEFORE INSERT
+    ON `payment`
+    FOR EACH ROW
+    begin
+    set new.Paid_date = curdate();
+    end
+
+    visit_date_update :
+    CREATE TRIGGER `visit_date_update`
+    BEFORE INSERT
+    ON `visit`
+    FOR EACH ROW
+    begin
+    set new.visit_date = curdate();
+    end

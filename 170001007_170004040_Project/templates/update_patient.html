@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1><strong>Enter the Patient details :</strong></h1>
+
+<div class="form-group">
+
+<form action="http://localhost:5000/update/patient" method="POST">
+    <table width="900px">
+
+    <tr>
+        <th align="left">
+            Patient ID
+        </th>
+        <td valign="top">
+            <input type="number" name="id" placeholder="Enter Patient ID">
+        </td>
+    </tr>
+
+
+    <tr>
+        <th align="left">
+            Choose one
+        </th>
+        <td valign="top">
+            <input type="radio" name="choice" value="P_name">Patient Name<br>
+            <input type="radio" name="choice" value="P_phone_1">Phone 1<br>
+            <input type="radio" name="choice" value="P_phone_2">Phone 2<br>
+            <input type="radio" name="choice" value="Blood_group">Blood Group<br>
+            <input type="radio" name="choice" value="Add_house_no">House No.<br>
+            <input type="radio" name="choice" value="Add_street">Street<br>
+            <input type="radio" name="choice" value="Add_city">City<br>
+            <input type="radio" name="choice" value="Add_state">State<br>
+        </td>
+    </tr>
+
+        <tr>
+        <th align="left">
+            Modification
+        </th>
+        <td valign="top">
+            <input type="text" name="change" placeholder="Enter changes">
+        </td>
+    </tr>
+
+            <tr>
+        <td colspan="2" style="text-align:center">
+            <input type="submit" value="submit">
+        </td>
+    </tr>
+
+    </table>
+</form>
+</div>
+
+<div class="list-group">
+<a href="http://localhost:5000" class="list-group-item">Home</a>
+</div>
+
+{% endblock content %}

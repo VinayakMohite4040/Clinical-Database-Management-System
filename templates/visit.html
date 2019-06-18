@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1><strong>...........................Enter the Visit details.......................</strong></h1>
+<center>
+<form action="http://localhost:5000/visit" method="POST">
+    <table width="900px">
+
+    <tr>
+        <th align="left">
+            Visit ID
+        </th>
+        <td valign="top">
+            <input type="number" name="visit_id" placeholder="Enter Visit ID">
+        </td>
+    </tr>
+
+        <tr>
+        <th align="left">
+            Staff ID
+        </th>
+        <td valign="top">
+            <input type="number" name="S_id" placeholder="Enter Staff ID">
+        </td>
+        </tr>
+
+        <tr>
+        <th align="left">
+            Test 1
+        </th>
+        <td valign="top">
+            <input type="number" name="test_1" placeholder="Enter Test ID 1" value="6">
+        </td>
+    </tr>
+
+        <tr>
+            <th align="left">
+            Test 2
+            </th>
+        <td valign="top">
+            <input type="number" name="test_2" placeholder="Enter Test ID 2" value="6">
+        </td>
+        </tr>
+
+        <tr>
+        <th align="left">
+            Test 3
+        </th>
+        <td valign="top">
+            <input type="number" name="test_3" placeholder="Enter Test ID 3" value="6">
+        </td>
+    </tr>
+
+        <tr>
+        <th align="left">
+            Test 4
+        </th>
+        <td valign="top">
+            <input type="number" name="test_4" placeholder="Enter Test ID 4" value="6">
+        </td>
+    </tr>
+
+    <tr>
+        <th align="left">
+            Due Date
+        </th>
+        <td valign="top">
+            <input type="date" name="Due_date" placeholder="Enter Due Date" size="30">
+        </td>
+    </tr>
+
+    <tr>
+        <td colspan="2" style="text-align:center">
+            <input type="submit" value="submit">
+        </td>
+    </tr>
+
+    </table>
+</form>
+</center>
+{% endblock content %}
